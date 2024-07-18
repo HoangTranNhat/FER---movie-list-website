@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Genres from './pages/Genre';
+import Stars from './pages/Star';
+import Producers from './pages/Producer';
+import Movies from './pages/Movie';
+import Directors from './pages/Director';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/director' element={<Directors />}/>
+          <Route path='/producer' element={<Producers />}/>
+          <Route path='/star' element={<Stars />}/>
+          <Route path='/genre' element={<Genres />}/>
+          <Route path='/movie' element={<Movies />}/>
+        </Routes>
+      </BrowserRouter>
+    </Container>
   );
 }
 
